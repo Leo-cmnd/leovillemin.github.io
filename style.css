@@ -254,3 +254,40 @@ main {
     overflow: hidden; /* Prevents scrollbars if canvas is slightly off */
 }
 
+
+/* Footer Styling Enhancements */
+footer {
+    text-align: center; /* Centers the content blocks (social links and copyright) */
+    padding: 30px 40px; /* Added a bit more top/bottom padding */
+    margin-top: 60px;   /* More space above the footer */
+    border-top: 1px solid #eeeeee;
+    background-color: #f9f9f9; /* Optional: a very light background for the footer */
+}
+
+.social-links {
+    margin-bottom: 20px; /* Space between social links and copyright text */
+}
+
+.social-links a {
+    display: inline-block; /* Allows margin/padding and keeps them on one line */
+    margin: 0 12px;       /* Space between individual logos */
+}
+
+.social-links img {
+    width: 28px;  /* Adjust size as needed for your logos */
+    height: 28px; /* Maintain aspect ratio, or set specific height if logos vary */
+    vertical-align: middle; /* Aligns images nicely if they are next to text (not the case here but good practice) */
+    opacity: 0.75; /* Slightly muted by default */
+    transition: opacity 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.social-links a:hover img {
+    opacity: 1; /* Full opacity on hover, making them 'brighter' */
+}
+
+.copyright-text { /* You might already have a <p> style, this makes it specific */
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 0.85em;
+    color: #666; /* Slightly muted color for copyright */
+}
+
