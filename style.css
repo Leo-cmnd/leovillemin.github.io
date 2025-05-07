@@ -255,39 +255,68 @@ main {
 }
 
 
-/* Footer Styling Enhancements */
 footer {
-    text-align: center; /* Centers the content blocks (social links and copyright) */
-    padding: 30px 40px; /* Added a bit more top/bottom padding */
-    margin-top: 60px;   /* More space above the footer */
+    display: flex;                 /* Enables Flexbox */
+    justify-content: space-between;/* Pushes the two main child divs to opposite ends */
+    align-items: flex-end;         /* Aligns items to the bottom of the footer line.
+                                      Use 'center' for vertical centering if preferred. */
+    padding: 25px 40px;            /* Adjusted padding slightly */
+    margin-top: 60px;
     border-top: 1px solid #eeeeee;
-    background-color: #f9f9f9; /* Optional: a very light background for the footer */
+    background-color: #f9f9f9;
+    /* text-align: center; */      /* REMOVE this from the main footer rule,
+                                      as flexbox now controls primary alignment. */
 }
 
+.footer-main-content {
+    text-align: left; /* Or 'center' if you want social links & copyright centered within this left block */
+                      /* If 'left', the social links and copyright will start from the left edge of this block */
+}
+
+/* Your existing .social-links and .copyright-text styles can largely remain.
+   You might want to adjust margins if they were relying on the parent's text-align:center. */
 .social-links {
-    margin-bottom: 20px; /* Space between social links and copyright text */
+    margin-bottom: 10px; /* Space between social links and copyright if stacked and centered/left */
+    /* If .footer-main-content is text-align:left, you might want social links to also be text-align:left or display:flex */
 }
 
+.copyright-text {
+    margin: 0; /* Reset default paragraph margin */
+    font-size: 0.85em;
+    color: #666;
+}
+
+/* NEW styles for the contact info on the right */
+.footer-contact-info {
+    text-align: right; /* Ensures the email link text aligns to the right within this div */
+}
+
+.footer-email-link {
+    font-size: 0.9em;
+    color: #000000; /* Plain black, like nav links */
+    text-decoration: none;
+}
+
+.footer-email-link:hover {
+    color: #555555; /* Dark grey on hover, like nav links */
+    text-decoration: underline;
+}
+
+/* Your .social-links img and .social-links a:hover img styles remain the same */
 .social-links a {
-    display: inline-block; /* Allows margin/padding and keeps them on one line */
-    margin: 0 12px;       /* Space between individual logos */
+    display: inline-block;
+    margin: 0 8px; /* Adjusted spacing slightly */
 }
-
 .social-links img {
-    height: 28px; /* << SET YOUR DESIRED HEIGHT HERE */
-    width: auto;   /* << THIS IS THE KEY CHANGE: width will adjust to maintain aspect ratio */
-    vertical-align: middle; /* Good for alignment */
+    height: 24px; /* Adjusted size slightly, change as needed */
+    width: auto;
+    vertical-align: middle;
     opacity: 0.75;
     transition: opacity 0.2s ease-in-out;
 }
-
 .social-links a:hover img {
-    opacity: 1; /* Full opacity on hover, making them 'brighter' */
+    opacity: 1;
 }
 
-.copyright-text { /* You might already have a <p> style, this makes it specific */
-    margin: 0; /* Remove default paragraph margin */
-    font-size: 0.85em;
-    color: #666; /* Slightly muted color for copyright */
-}
+
 
