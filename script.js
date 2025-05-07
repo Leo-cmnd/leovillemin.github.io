@@ -84,3 +84,63 @@ function windowResized() {
   let canvasContainer = select('#particle-background');
   resizeCanvas(canvasContainer.width, canvasContainer.height);
 }
+
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+  const projectGrid = document.querySelector('.project-grid');
+  const modal = document.getElementById('projectModal');
+
+  if (projectGrid && modal) {
+      const projectItems = projectGrid.querySelectorAll('.project-item');
+      const closeButton = modal.querySelector('.close-button');
+      const modalTitleElement = modal.querySelector('#modalProjectTitle');
+      const modalBodyElement = modal.querySelector('#modalProjectBody'); // Get the new body container
+
+      projectItems.forEach(item => {
+          item.addEventListener('click', function(event) {
+              event.preventDefault();
+
+              const title = this.dataset.title;
+              const modalContentTargetId = this.dataset.modalTargetId;
+              const hiddenContentElement = document.getElementById(modalContentTargetId);
+
+              modalTitleElement.textContent = title;
+
+              if (hiddenContentElement) {
+                  modalBodyElement.innerHTML = hiddenContentElement.innerHTML; // Copy rich HTML
+              } else {
+                  modalBodyElement.innerHTML = '<p>Details for this project are not available.</p>';
+                  console.error('Modal content for ID ' + modalContentTargetId + ' not found.');
+              }
+
+              modal.style.display = 'block';
+              document.body.style.overflow = 'hidden';
+          });
+      });
+
+      function closeModal() {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+          modalBodyElement.innerHTML = ''; // Clear content when closing
+      }
+
+      if (closeButton) {
+          closeButton.addEventListener('click', closeModal);
+      }
+      window.addEventListener('click', function(event) {
+          if (event.target === modal) {
+              closeModal();
+          }
+      });
+      window.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && modal.style.display === 'block') {
+              closeModal();
+          }
+      });
+  }
+
+  // ... (Your p5.js particle code if it's also in this file and conditionally run) ...
+  if (document.getElementById('particle-background')) {
+      // p5.js code...
+  }
+});
