@@ -81,7 +81,6 @@ main {
     justify-content: space-between; /* This now puts nav (first item) left, logo (second item) right */
     align-items: flex-start;
     padding: 20px 40px;
-    border-bottom: 1px solid #eeeeee;
 }
 
 /* All other styles (#main-nav ul li, #main-nav ul li a, body, main, footer, etc.)
