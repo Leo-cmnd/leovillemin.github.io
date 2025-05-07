@@ -1,0 +1,226 @@
+/* In your style.css */
+
+/* Modify this existing rule for #main-nav ul */
+#main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;     /* CHANGED from right to left */
+}
+
+#main-nav ul li a {
+    text-decoration: none; /* Removes underline from links */
+    color: #000000;       /* Sets the default link color to plain black */
+    font-weight: bold;
+    font-size: 0.95em;    /* Adjust as needed */
+    display: block;       /* Makes the whole link area clickable */
+    padding: 3px 0;       /* Optional: adds a little vertical breathing room */
+}
+
+/* Ensures visited links are also plain black */
+#main-nav ul li a:visited {
+    color: #000000;
+}
+
+/* Ensures links remain plain black even when hovered over */
+#main-nav ul li a:hover {
+    color: #000000;
+    /* If you want absolutely no visual change on hover (not even a slight dimming or brightening if other global styles were affecting it),
+       you could also add 'text-decoration: none;' here, but it's usually inherited. */
+}
+
+/* Ensures links remain plain black when being actively clicked */
+#main-nav ul li a:active {
+    color: #000000;
+}
+
+/* Ensures link text remains plain black when focused (e.g., using Tab key)
+   Browsers will typically add an outline for focus for accessibility - this is good!
+   We're just ensuring the text color itself doesn't change from black. */
+#main-nav ul li a:focus {
+    color: #000000;
+}
+
+
+/* Modify this existing rule for .logo-container */
+.logo-container {
+    /* Keep any existing styles for h1, p margins if you have them */
+    text-align: right;    /* ADD THIS to align the text within this block to the right */
+}
+
+/* The #main-header style should remain the same, as flexbox will handle the order: */
+#main-header {
+    display: flex;
+    justify-content: space-between; /* This now puts nav (first item) left, logo (second item) right */
+    align-items: flex-start;
+    padding: 20px 40px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+/* All other styles (#main-nav ul li, #main-nav ul li a, body, main, footer, etc.)
+   can remain as they were from the previous step, unless you want to tweak them further. */
+
+
+/* Engineering Projects Page Styling */
+#engineering-showcase {
+    padding: 20px 40px; /* Give some padding around the section */
+    text-align: center; /* Center the main heading and intro paragraph */
+}
+
+#engineering-showcase h2 {
+    margin-bottom: 10px;
+}
+
+.page-intro {
+    margin-bottom: 30px;
+    max-width: 700px; /* Optional: constrain width of intro text */
+    margin-left: auto;
+    margin-right: auto;
+    color: #333; /* Slightly softer text color */
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates 2 equal-width columns */
+    gap: 30px;                             /* Space between grid items (rows and columns) */
+    text-align: left;                      /* Ensures content within grid items aligns left */
+
+    /* For the empty space on left and right: */
+    max-width: 900px; /* Adjust this value as needed. It sets the maximum width of the grid. */
+                      /* Alternatively, you could use a percentage like 'max-width: 80%;' */
+    margin-left: auto;  /* These two lines center the grid within its parent */
+    margin-right: auto; /* if its content doesn't fill the max-width. */
+    padding-top: 20px; /* Optional: add some space above the grid if needed */
+}
+
+
+.project-item {
+    display: block;
+    position: relative; /* Crucial for positioning the overlay */
+    overflow: hidden;   /* Keeps everything neat, especially if images zoom */
+    border-radius: 5px;
+    text-decoration: none;
+    color: inherit;
+    background-color: #f0f0f0; /* A light background if images don't fill perfectly */
+    /* Remove padding if you want the image to fill the item edge-to-edge */
+    /* padding: 15px; */ /* Consider removing this or making it 0 */
+    /* transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; */ /* Moved to image/overlay */
+}
+
+/* Update .project-item img */
+.project-item img {
+    display: block; /* Important for layout and preventing extra space */
+    width: 100%;
+    height: auto;
+    border-radius: 3px; /* Or remove if you want sharp edges matching .project-item */
+    /* margin-bottom: 10px; */ /* Remove if title is now an overlay */
+    transition: transform 0.3s ease-in-out; /* For a subtle zoom effect on hover */
+}
+
+/* NEW: Styles for the overlay and text that appears on hover */
+.project-info-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay. Adjust color and opacity (last value) */
+    color: #ffffff; /* White text for the title on the overlay */
+
+    display: flex; /* For centering the text */
+    flex-direction: column; /* Stack title and description vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center;   /* Center horizontally */
+    text-align: center;    /* Ensure text within is centered if it wraps */
+
+    opacity: 0; /* Hidden by default */
+    visibility: hidden; /* Also hidden for accessibility */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    padding: 20px; /* Padding inside the overlay */
+    box-sizing: border-box; /* Ensures padding doesn't expand the overlay beyond 100% width/height */
+}
+
+.project-info-overlay h3 {
+    margin-top: 0;
+    margin-bottom: 0; /* Adjust if you add a description below it */
+    font-size: 1.4em; /* Make title prominent */
+}
+
+/* Optional: if you add a <p class="project-short-description"> inside the overlay */
+/*
+.project-info-overlay .project-short-description {
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+*/
+
+/* Hover effects */
+.project-item:hover .project-info-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-item:hover img {
+    transform: scale(1.05); /* Subtle zoom effect on the image */
+}
+
+
+/* Art Gallery Page Styling */
+#art-gallery-section {
+    padding: 20px 40px; /* Padding around the whole section */
+    text-align: center;   /* Center the main heading and intro paragraph */
+}
+
+#art-gallery-section h2 {
+    margin-bottom: 10px;
+}
+
+/* .page-intro class is already styled from engineering page, it can be reused */
+
+.art-list-container {
+    max-width: 900px; /* Adjust as desired: Max width for the column of art pieces */
+                      /* This creates space on the left/right on wider screens. */
+    margin: 20px auto;  /* Centers the container and adds space above/below */
+    text-align: left; /* Reset text-align if you want captions to align left by default */
+}
+
+.art-piece {
+    margin-bottom: 50px; /* Space between each art piece */
+    background-color: #fdfdfd; /* Very light background for each piece, optional */
+    padding-bottom: 20px; /* Space below the caption within the piece's 'block' */
+    border-bottom: 1px solid #eee; /* Subtle separator */
+}
+
+.art-piece:last-child {
+    margin-bottom: 0; /* No margin for the very last art piece */
+    border-bottom: none;
+}
+
+.art-piece img {
+    display: block;    /* Removes extra space below the image */
+    max-width: 100%;   /* Makes image responsive, won't exceed container width */
+    height: auto;      /* Maintains aspect ratio */
+    margin-left: auto; /* Centers the image if its actual width is less than max-width */
+    margin-right: auto;
+    margin-bottom: 15px; /* Space between image and its caption */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Optional: subtle shadow for images */
+}
+
+.art-piece .art-reference { /* This styles the <figcaption> */
+    font-size: 0.9em;
+    color: #444;
+    text-align: center; /* Center the caption text */
+    line-height: 1.5;
+    padding: 0 10px; /* Ensures caption text doesn't touch edges if it's long */
+}
+
+#particle-background {
+    position: fixed; /* Makes it stay in place even when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;    /* Crucial: places it BEHIND all other content */
+    overflow: hidden; /* Prevents scrollbars if canvas is slightly off */
+}
+
