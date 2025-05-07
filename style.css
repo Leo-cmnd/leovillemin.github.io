@@ -218,7 +218,6 @@ main {
     margin-bottom: 50px; /* Space between each art piece */
     background-color: #fdfdfd; /* Very light background for each piece, optional */
     padding-bottom: 20px; /* Space below the caption within the piece's 'block' */
-    border-bottom: 1px solid #eee; /* Subtle separator */
 }
 
 .art-piece:last-child {
