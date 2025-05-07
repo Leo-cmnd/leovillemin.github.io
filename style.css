@@ -274,11 +274,11 @@ footer {
 }
 
 .social-links img {
-    width: 28px;  /* Adjust size as needed for your logos */
-    height: 28px; /* Maintain aspect ratio, or set specific height if logos vary */
-    vertical-align: middle; /* Aligns images nicely if they are next to text (not the case here but good practice) */
-    opacity: 0.75; /* Slightly muted by default */
-    transition: opacity 0.2s ease-in-out; /* Smooth hover effect */
+    height: 28px; /* << SET YOUR DESIRED HEIGHT HERE */
+    width: auto;   /* << THIS IS THE KEY CHANGE: width will adjust to maintain aspect ratio */
+    vertical-align: middle; /* Good for alignment */
+    opacity: 0.75;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .social-links a:hover img {
