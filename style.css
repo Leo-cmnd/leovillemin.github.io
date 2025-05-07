@@ -1,5 +1,32 @@
 /* In your style.css */
 
+
+html {
+    height: 100%; /* Ensures the html element takes up the full height */
+}
+
+body {
+    display: flex;             /* Enables Flexbox */
+    flex-direction: column;    /* Stacks children (header, main, footer) vertically */
+    min-height: 100vh;         /* Makes the body at least the full height of the viewport */
+
+    /* Keep your existing body styles, and ensure margin is 0 */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* padding: 0; /* If you had padding on the body, it might be better on main or header/footer */
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.6;
+}
+
+main {
+    flex-grow: 1; /* This is the key: it makes the <main> element expand
+                     and take up any available space, pushing the footer down. */
+
+    /* Keep your existing padding for main, e.g.: */
+    padding: 20px;
+}
+
 /* Modify this existing rule for #main-nav ul */
 #main-nav ul {
     list-style-type: none;
