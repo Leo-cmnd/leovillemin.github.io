@@ -129,6 +129,9 @@ main {
     text-decoration: none;
     color: inherit;
     background-color: #f0f0f0; /* A light background if images don't fill perfectly */
+    padding: 0; /* ADD THIS or ensure it's 0 if it was previously set */
+    aspect-ratio: 4 / 3; /* ADD THIS - e.g., 4:3 aspect ratio. Change as needed (e.g., 16/9, 1/1) */
+    /* ... other styles ... */
     /* Remove padding if you want the image to fill the item edge-to-edge */
     /* padding: 15px; */ /* Consider removing this or making it 0 */
     /* transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; */ /* Moved to image/overlay */
@@ -136,12 +139,12 @@ main {
 
 /* Update .project-item img */
 .project-item img {
-    display: block; /* Important for layout and preventing extra space */
+    display: block;
     width: 100%;
-    height: auto;
-    border-radius: 3px; /* Or remove if you want sharp edges matching .project-item */
-    /* margin-bottom: 10px; */ /* Remove if title is now an overlay */
-    transition: transform 0.3s ease-in-out; /* For a subtle zoom effect on hover */
+    height: 100%;         /* CHANGED from auto: Make image fill height of container */
+    object-fit: cover;    /* ADD THIS: Covers the area, maintains aspect ratio, crops if necessary */
+    border-radius: 0;     /* Or match .project-item's border-radius if it's not 0 and you want consistency */
+    transition: transform 0.3s ease-in-out;
 }
 
 /* NEW: Styles for the overlay and text that appears on hover */
