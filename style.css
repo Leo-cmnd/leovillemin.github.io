@@ -317,4 +317,38 @@ footer {
 }
 
 
+#modalProjectBody {
+    font-size: 1em;
+    line-height: 1.7; /* Improved readability for paragraphs */
+    color: #333;
+    margin-top: 15px; /* Space below the modal title */
+    max-height: 60vh; /* Max height for the content area before scrolling */
+    overflow-y: auto; /* Add scrollbar if content exceeds max height */
+}
+
+#modalProjectBody img.modal-body-image { /* Styles images with the class we added */
+    max-width: 100%;    /* Responsive image */
+    height: auto;
+    display: block;     /* Helps with centering and margins */
+    margin: 15px auto;  /* Adds space above/below and centers block images */
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#modalProjectBody h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #222;
+}
+
+#modalProjectBody ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+
+#modalProjectBody ul li {
+    margin-bottom: 5px;
+}
 

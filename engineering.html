@@ -13,13 +13,13 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="engineering.html">Engineering projects</a></li>
-                <li><a href="art.html">Drawings/Art</a></li>
+                <li><a href="art.html">Art</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
 
         <div class="header-page-title-container">
-            <h2>Engineering Projects</h2>
+            <h2>Engineering projects</h2>
         </div>
 
         <div class="logo-container">
@@ -30,11 +30,10 @@
     <main>
         <section id="engineering-showcase">
             <div class="project-grid">
-                <a href="project-detail-1.html" class="project-item">
-                    <img src="images/jellyfishes.png" alt="Jellyfish swimming motion">
-                    <div class="project-info-overlay">
-                        <h3>Jellyfish swimming motion</h3>
-                        </div>
+                <a href="project-detail-1.html" class="project-item"
+                    data-title="Jellyfish swimming motion"
+                    data-modal-target-id="project1-modal-details">
+                    <img src="images/jellyfishes.png" alt="Jellyfish swimming motion"><div class="project-info-overlay"><h3>Jellyfish swimming motion</h3></div>
                 </a>
                 
                 <a href="project-detail-2.html" class="project-item">
@@ -66,14 +65,31 @@
                 </a>
 
                 <a href="project-detail-6.html" class="project-item">
-                    <img src="https://placehold.co/600x400/EEE/31343C?text=Project+Image+3" alt="Descriptive text for Project 3">
+                    <img src="images/safran.jpeg" alt="Descriptive text for Project 3">
                     <div class="project-info-overlay">
-                        <h3>Project Title 3</h3>
+                        <h3>Safran Aero Booster, Belgium</h3>
                     </div>
                 </a>
 
                 </div>
         </section>
+
+        <div id="modal-hidden-content" style="display:none;">
+            <div id="project1-modal-details">
+                <img src="images/jellyfishes.png" alt="Jellyfish swimming motion" class="modal-body-image">
+                <p>This project involved developing a sophisticated controller for a 6-axis robotic arm. The primary challenge was ensuring real-time precision and smooth kinematics for complex tasks. We utilized microcontrollers and custom C++ firmware.</p>
+                <img src="images/jellyfishes.png" alt="Jellyfish swimming motion" class="modal-body-image">
+                <h4>Key Features & Technologies:</h4>
+                <ul>
+                    <li>Real-time OS implementation</li>
+                    <li>Inverse Kinematics Algorithm</li>
+                    <li>Sensor integration (force, torque)</li>
+                    <li>C++, Python</li>
+                </ul>
+                <p>Further details about the outcomes and learnings...</p>
+            </div>
+
+            </div>
     </main>
 
 
@@ -95,6 +111,14 @@
         </div>
     </footer>
     
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalProjectTitle"></h2>
+            <div id="modalProjectBody">
+                </div>
+        </div>
+    </div>
 
     </body>
     
