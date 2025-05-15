@@ -144,3 +144,45 @@ document.addEventListener('DOMContentLoaded', function() {
       // p5.js code...
   }
 });
+
+
+    const modalFullProjectLink = modal.querySelector('#modalFullProjectLink'); // <--- ADD THIS LINE
+
+    projectItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const title = this.dataset.title;
+            const modalContentTargetId = this.dataset.modalTargetId;
+            const hiddenContentElement = document.getElementById(modalContentTargetId);
+            const fullProjectPageUrl = this.href; // <--- ADD THIS LINE - Get the href from the clicked grid item
+
+            // ... (existing code to populate modal title and body) ...
+            if (modalTitleElement) { /* ... */ }
+            if (hiddenContentElement && modalBodyElement) { /* ... */ } else { /* ... */ }
+
+
+            // === ADD CODE TO SET HREF AND SHOW THE LINK ===
+            if (modalFullProjectLink) {
+                modalFullProjectLink.href = fullProjectPageUrl; // Set the link's destination
+                modalFullProjectLink.style.display = 'block'; // Make it visible (matches CSS display: block for centering)
+            }
+            // ==============================================
+
+            modal.style.display = 'block'; // Show the modal
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // --- ALSO, HIDE THE LINK AGAIN WHEN THE MODAL CLOSES ---
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        modalBodyElement.innerHTML = ''; // Clear content
+
+        // Hide the link when modal closes
+        if (modalFullProjectLink) {
+           modalFullProjectLink.style.display = 'none';
+           modalFullProjectLink.href = '#'; // Reset the href (optional)
+        }
+    }

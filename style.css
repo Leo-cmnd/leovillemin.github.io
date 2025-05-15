@@ -352,3 +352,25 @@ footer {
     margin-bottom: 5px;
 }
 
+
+#modalFullProjectLink {
+    display: none; /* Start hidden */
+    margin-top: 25px; /* Space above the link */
+    padding: 10px 20px;
+    background-color: #007bff; /* Button style background */
+    color: white;             /* Button style text */
+    text-decoration: none;    /* Remove underline */
+    border-radius: 5px;       /* Rounded corners */
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    /* Centering styles */
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#modalFullProjectLink:hover {
+    background-color: #0056b3;
+}
+
