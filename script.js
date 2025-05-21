@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('projectModal');
 
   if (projectGrid && modal) {
-      const projectItems = projectGrid.querySelectorAll('.project-item');
+      const modalFullProjectLink = modal.querySelector('#modalFullProjectLink');
       const closeButton = modal.querySelector('.close-button');
       const modalTitleElement = modal.querySelector('#modalProjectTitle');
       const modalBodyElement = modal.querySelector('#modalProjectBody'); // Get the new body container
@@ -103,14 +103,21 @@ document.addEventListener('DOMContentLoaded', function() {
               const title = this.dataset.title;
               const modalContentTargetId = this.dataset.modalTargetId;
               const hiddenContentElement = document.getElementById(modalContentTargetId);
+              const fullProjectPageUrl = this.href; // Get the href from the clicked grid item
 
-              modalTitleElement.textContent = title;
-
-              if (hiddenContentElement) {
-                  modalBodyElement.innerHTML = hiddenContentElement.innerHTML; // Copy rich HTML
-              } else {
+              if (modalTitleElement) {
+                  modalTitleElement.textContent = title;
+              }
+              if (hiddenContentElement && modalBodyElement) {
+                  modalBodyElement.innerHTML = hiddenContentElement.innerHTML;
+              } else if (modalBodyElement) {
                   modalBodyElement.innerHTML = '<p>Details for this project are not available.</p>';
-                  console.error('Modal content for ID ' + modalContentTargetId + ' not found.');
+              }
+
+              // Set the modal link
+              if (modalFullProjectLink) {
+                  modalFullProjectLink.href = fullProjectPageUrl;
+                  modalFullProjectLink.style.display = 'block';
               }
 
               modal.style.display = 'block';
