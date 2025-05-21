@@ -181,6 +181,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    modal.addEventListener('click', function(e) {
+    if (
+        e.target === modal ||
+        e.target.classList.contains('modal-content')
+    ) {
+        if (
+            modalFullProjectLink &&
+            modalFullProjectLink.href &&
+            modalFullProjectLink.href !== '#'
+        ) {
+            window.open(modalFullProjectLink.href, '_blank');
+        }
+    }
+});
+
     // --- ALSO, HIDE THE LINK AGAIN WHEN THE MODAL CLOSES ---
     function closeModal() {
         modal.style.display = 'none';
